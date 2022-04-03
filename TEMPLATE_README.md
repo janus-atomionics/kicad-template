@@ -17,12 +17,60 @@ Don't use Git to:
 - Resolve conflicts / merge changes from multiple designers into one file.
 - Those things just won't work.
 
-Read more here:
+Read more [here](https://forum.kicad.info/t/pros-and-cons-of-using-a-vcs-git-etc-with-kicad/31331):
+
+
+## Template file organization
+
+```
+kicad-template
+|   PROJECT_README.md                     <- describes the specific project
+│   TEMPLATE_README.md                    <- describes how to use this template
+│   .gitignore
+│   .gitmodules                           <- manages subcomponents for this template, e.g. Atomionics libraries
+│
+└───board
+│   │   project.kicad_pcb
+│   │   project.kicad_pro
+│   │   project.kicad_sch
+│   │
+│   └───include
+|       └───atomionics
+|           └───digikey-kicad-library
+|           └───SparkFun-KiCad-Libraries
+|           └─── ....                   <- place your new symbols in a folder here, to save for future projects*
+|           └───SynQor
+|           └───Traco
+|       └───user
+|           └─── ....                   <- place your new symbols here, if only relevant for this project
+│   
+└───design-support
+    │   supporting-documentation.pdf
+    │   ....
+```
+\*) You must also commit and push to the submodule to save it to the Atomionics symbol repo.
+
 
 ## Managing paths
+Paths are managed with variables. Variables are referenced at ${VARIABLE_NAME}.
+- KIPRJMOD -> KiCad automatic. Directory containing the `.kicad_pro` file.
+- ...
+- KICAD_DATASHEET -> Location for custom datasheets.
+
 
 ## Library sources
 
-### Global / built-in libraries
-Found in the usual install
+### Built-in libraries
+- Found in the KiCad install path, and 
+- are overwritten on each version update (so no point making changes to them).
 
+### User libraries
+- By default saved somewhere on the local drive, maybe outside or maybe inside the project folder.
+- If not saved in the project, this makes them hard to share in a systematic way.
+- Can be included either "global" or "project-level".
+
+### Atomionics managed libraries
+- This is where we should be managing and saving relevant symbols.
+- Made, modified and managed by Atomionics.
+- Libraries derived from e.g. from Digi-Key, SparkFun, UltraLibrarian, etc.
+- Custom libraries made for various designs.
