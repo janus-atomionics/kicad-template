@@ -82,4 +82,6 @@ Paths are managed with variables. Variables are referenced at ${VARIABLE_NAME}.
 - Libraries derived from e.g. from Digi-Key, SparkFun, UltraLibrarian, etc.
 - Custom libraries made for various designs.
 
-Design rules: https://github.com/ayberkozgur/jlcpcb-design-rules-stackups
+Design rules:
+- https://github.com/sethhillbrand/kicad_templates
+- https://github.com/ayberkozgur/jlcpcb-design-rules-stackups
