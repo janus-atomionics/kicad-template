@@ -44,6 +44,13 @@ kicad-template
 |       └───user
 |           └─── ....                   <- place your new symbols here, if only relevant for this project
 │   
+└───design-rules                        <- reusable rules and stackup configs for various vendors
+│   └───jlcpcb
+|       └───rules
+|       └───stackups
+│   └─── ....
+│   └───README.md
+│   
 └───design-support
     │   supporting-documentation.pdf
     │   ....
@@ -74,3 +81,5 @@ Paths are managed with variables. Variables are referenced at ${VARIABLE_NAME}.
 - Made, modified and managed by Atomionics.
 - Libraries derived from e.g. from Digi-Key, SparkFun, UltraLibrarian, etc.
 - Custom libraries made for various designs.
+
+Design rules: https://github.com/ayberkozgur/jlcpcb-design-rules-stackups
